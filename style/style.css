@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
+
+@media only screen and (max-device-width: 900px) {
+        .menu { width:100%;
+                  
+        }
+    }
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #DCDCDC;
+    text-align: center;
+}
+
+.flexbox-container{
+    display: flexbox;
+}
+
+.menu{
+    background-color: black;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    text-align: center;
+    position: fixed;
+}
+
+.div-menu{
+    list-style: none;
+    width: 100%;
+}
+
+
+
+#link-menu{
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+.parallax-container{
+    background-image: url("/img/fundo.jpg");
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input{
+    border-radius: 8px 8px 8px 8px;
+    size: 20px;
+    text-align: center;
+}
+
+select{
+    border-radius: 8px 8px 8px 8px;
+    background-color: white;
+    
+}

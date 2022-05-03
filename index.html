@@ -1,0 +1,78 @@
+<DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Conversor de moedas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content = "width =device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <script type="text/javascript" src="./index.js"></script>
+
+</head>   
+
+<body>
+<div class="flexbox-container">
+    
+    <header>
+        <div class="menu-container">
+            <nav class="menu">
+                <div class="div-menu">
+                    <a href="#home" id="link-menu">Home</a>
+                    <a href="#about-div" id="link-menu">About</a>
+                    <a href="#contact-div" id="link-menu">Contact</a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="parallax-container">
+
+    </div>   
+    
+    <div class="container-conveter">
+        <h1>Conversor de moedas</h1>
+
+        <input id="valueId" ype="text" placeholder="1,00">
+        <select id="selectMoedaOne">
+         <option value="EURO">União Europeia, Euro (EUR)</option>
+         <option value="REAL">Brasil, Real (BRL)</option>
+         <option value="DOLAR">Estados Unidos, Dolar (USD)</option>
+        </select>
+        
+        <select id="selectMoedaTwo">
+         <option value="EURO">União Europeia, Euro (EUR)</option>
+         <option value="REAL">Brasil, Real (BRL)</option>
+         <option value="DOLAR">Estados Unidos, Dolar (USD)</option>
+        </select>
+
+        
+    </div>
+        <h3>Faça sua conversão, com base em dados diários fornecido pelo Banco Central do Brasil.</h3>
+        <button type="submit" onclick="Converter()">Converter</button>
+        
+        <h3 id="valueConvert"></h3>        
+
+        <h2>Como usar o conversor de modedas ?</h2>
+        <p>É simples e prático, coloque o valor que deseja converter, selecione as moedas do país de origem e de destino e pronto, em poucos segundos, você terá a conversão feita.</p>
+        <h2>Como funciona a conversão e para quê serve?</h2>
+            <p>
+                A conversão de moeda, também conhecida como taxa de câmbio, funciona da seguinte maneira: toda moeda possui um custo comparado a outra moeda.
+
+                O dólar, por exemplo, possui oscilações, mas o custo de um dólar gira em torno de R$ 5. A conversão é essencial para entender o quanto de dinheiro levar e, principalmente, se o valor que você possui será suficiente para a sua viagem.
+                
+                Por isso, sempre considera o valor da moeda estrangeira sob a moeda nacional. Neste caso, existem moedas que são mais valorizadas que o Real como a Libra Esterlina, o Dólar e o Euro. 
+                
+                No entanto, também existem moedas que custam menos que o Real. O Peso Argentino, Mexicano e chileno são exemplos de moedas que valem menos que a moeda nacional. A utilidade na conversão se dá justamente na troca de produtos e serviços oferecidos no exterior.
+                
+                Afinal, usar o cartão de crédito no exterior não vale a pena, já que possui um custo alto. Então, a melhor forma de viajar ao exterior é utilizando a moeda corrente.
+            </p>
+        </div>
+
+
+    </div>
+   
+    
+
+ </div>  
+</body>
+</html>
