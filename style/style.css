@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 @media only screen and (max-device-width: 900px) {
         .menu { width:100%;
@@ -9,8 +9,8 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #DCDCDC;
+    font: 400 14px Playfair, sans-serif;
+    background-color: white;
     text-align: center;
 }
 
@@ -19,25 +19,25 @@ body{
 }
 
 .menu{
-    background-color: black;
+    background-color: #FFF;
     width: 100%;
     font-family: 'Poppins', sans-serif;
-    display: flex;
-    text-align: center;
     position: fixed;
 }
 
 .div-menu{
     list-style: none;
     width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
 }
-
-
 
 #link-menu{
     padding: 1rem;
     text-decoration: none;
-    color: white;
+    color: #1E90FF;
     font-size: 25px;
 }
 
@@ -50,14 +50,95 @@ body{
     background-size: cover;
 }
 
-input{
-    border-radius: 8px 8px 8px 8px;
-    size: 20px;
+.container-conveter{
+    background-image: linear-gradient(to right, #1E90FF, #87CEEB);
+    padding: 50px;
+    color: #FFF;
+
+}
+h1{
+    color: white;
+}
+
+input, select{
+    height: min-content;
+    background: #FFF;
+    border: 0;
+    border-radius: 8px;
+    color: #1E90FF;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    display: flexbox;
+    margin-bottom: 1rem;
+} 
+
+input::placeholder {
+    color: #1E90FF;
+  }
+
+button{
+  height: 35px;
+  background: #00008B;
+  border: 0;
+  border-radius: 8px;
+  color: #FFF;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#about{
+   padding-top: 2rem;
+   padding-left: 6rem; 
+   padding-right: 6rem;    
+}
+
+h2{
+    text-align: center;
+    padding-top: 1rem;
+}
+
+p{
+    text-align: justify;
+}
+
+.img-about{
+    border-radius: 50%;
+    width: 400px;
+    height: 320px;
+    padding: 1rem;
+}
+
+.section-contact, p{
+    display: flexbox;
     text-align: center;
 }
 
-select{
-    border-radius: 8px 8px 8px 8px;
-    background-color: white;
-    
+.section-contact-itens{
+    display:flex;
+    justify-content:space-evenly ;
+    align-items: center;
+    text-align: center;
+}
+
+.title{
+    color: #000;
+}
+
+.logo{
+    width:50px;
+    height:40px;
+    border-radius: 50%;
+}
+
+.footer-container{
+    font-family: 'Poppins', sans-serif;
+    background-color: #1E90FF;
+    text-align: center;
+    color: white;
+    display: flexbox;
+    padding: 2px;
 }

@@ -10,40 +10,46 @@ let Converter = () => {
    
 
     if(valueSelectOne === 'EURO' || valueSelectTwo ==='REAL'){
-        let valueFinal = valueMoeda*5.24
+        let obterValue = valueMoeda*5.24;
+        let valueFinal = obterValue.toFixed(2);
         let passValueConvertido = `O valor convertido é : ${valueFinal}`
         elementConvertido.innerHTML = passValueConvertido;
     }
 
     if(valueSelectOne === 'EURO' || valueSelectTwo ==='DOLAR'){
-        let valueFinal = valueMoeda*1.10
+        let obterValue = valueMoeda*1.10;
+        let valueFinal = obterValue.toFixed(2);
         let passValueConvertido = `O valor convertido é : ${valueFinal}`
         elementConvertido.innerHTML = passValueConvertido;
 
     }
 
     if(valueSelectOne === 'REAL' || valueSelectTwo ==='DOLAR'){
-        let valueFinal = valueMoeda*0.21
+        let obterValue = valueMoeda*0.21;
+        let valueFinal = obterValue.toFixed(2);
         let passValueConvertido = `O valor convertido é : ${valueFinal}`
         elementConvertido.innerHTML = passValueConvertido;
 
     }
 
     if(valueSelectOne === 'REAL' || valueSelectTwo ==='EURO'){
-        let valueFinal = valueMoeda*0.19
+        let obterValue = valueMoeda*0.19;
+        let valueFinal = obterValue.toFixed(2);
         let passValueConvertido = `O valor convertido é : ${valueFinal}`
         elementConvertido.innerHTML = passValueConvertido;
     }
 
     if(valueSelectOne === 'DOLAR' || valueSelectTwo ==='REAL'){
-        let valueFinal = valueMoeda*4.77
+        let obterValue = valueMoeda*4.77;
+        let valueFinal = obterValue.toFixed(2);
         let passValueConvertido = `O valor convertido é : ${valueFinal}`
         elementConvertido.innerHTML = passValueConvertido;
 
     }
 
     if(valueSelectOne === 'DOLAR' || valueSelectTwo ==='EURO'){
-        let valueFinal = valueMoeda*0.91
+        let obterValue = valueMoeda*0.91;
+        let valueFinal = obterValue.toFixed(2);
         let passValueConvertido = `O valor convertido é : ${valueFinal}`
         elementConvertido.innerHTML = passValueConvertido;
 
