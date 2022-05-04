@@ -14,11 +14,11 @@ let Converter = () => {
     }
 
     if(valueSelectOne == 'EURO' && valueSelectTwo == 'DOLAR'){
-        let obterValue = valueMoeda*1.10
+        let valueFinal = valueMoeda*1.10
         let passValueConvertido = `O valor convertido é : ${valueFinal}`
         elementConvertido.innerHTML = passValueConvertido;
-
     }
+   
 
     if(valueSelectOne == 'REAL' && valueSelectTwo ==='DOLAR'){
         let valueFinal = valueMoeda*0.21
