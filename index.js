@@ -1,49 +1,26 @@
+const convertions = {
+    'EUR-BRL': 5.24,
+    'EUR-USD': 1.10,
+    'BRL-USD': 0.19,
+    'BRL-EUR': 0.19,
+    'USD-BRL': 4.77,
+    'USD-EUR': 4.77,
+}
+
 let Converter = () => {
-    let valueId = document.getElementById("valueId");
-    let valueMoeda = parseFloat(valueId.value);
-    let selectMoedaOne = document.getElementById("selectMoedaOne");
-    let selectMoedaTwo = document.getElementById("selectMoedaTwo");
-    let valueSelectOne = selectMoedaOne.value;
-    let valueSelectTwo = selectMoedaTwo.value;
+    
+    let valueMoeda = parseFloat(document.getElementById("valueId").value) || 1;
+    let valueSelectOne = document.getElementById("selectMoedaOne").value;
+    let valueSelectTwo = document.getElementById("selectMoedaTwo").value;
     let elementConvertido = document.getElementById("valueConvert");
 
-    if(valueSelectOne == 'EURO' && valueSelectTwo == 'REAL'){
-        let valueFinal = valueMoeda*5.24
-        let passValueConvertido = `O valor convertido é : ${valueFinal.toFixed(2)}`
-        elementConvertido.innerHTML = passValueConvertido;
-    }
+    if(valueSelectOne === valueSelectTwo) return;
 
-    if(valueSelectOne == 'EURO' && valueSelectTwo == 'DOLAR'){
-        let valueFinal = valueMoeda*1.10
-        let passValueConvertido = `O valor convertido é : ${valueFinal.toFixed(2)}`
-        elementConvertido.innerHTML = passValueConvertido;
-    }
-   
-
-    if(valueSelectOne == 'REAL' && valueSelectTwo ==='DOLAR'){
-        let valueFinal = valueMoeda * 0.19 
-        let passValueConvertido = `O valor convertido é : ${valueFinal.toFixed(2)}`
-        elementConvertido.innerHTML = passValueConvertido;
-
-    }
-
-    if(valueSelectOne == 'REAL' && valueSelectTwo == 'EURO'){
-        let valueFinal = valueMoeda*0.19
-        let passValueConvertido = `O valor convertido é : ${valueFinal.toFixed(2)}`
-        elementConvertido.innerHTML = passValueConvertido;
-    }
-
-    if(valueSelectOne == 'DOLAR' && valueSelectTwo == 'REAL'){
-        let valueFinal = valueMoeda*4.77
-        let passValueConvertido = `O valor convertido é : ${valueFinal.toFixed(2)}`
-        elementConvertido.innerHTML = passValueConvertido;
-
-    }
-
-    if(valueSelectOne == 'DOLAR' &&  valueSelectTwo == 'EURO'){
-        let valueFinal = valueMoeda*0.91
-        let passValueConvertido = `O valor convertido é : ${valueFinal.toFixed(2)}`
-        elementConvertido.innerHTML = passValueConvertido;
-
-    }
+    const rate = convertions[`${valueSelectOne}-${valueSelectTwo}`];
+    const convertedValue = valueMoeda * rate;
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: valueSelectTwo,
+    });
+    elementConvertido.innerHTML = `O valor convertido é : ${formatter.format(convertedValue)}`;
 }
