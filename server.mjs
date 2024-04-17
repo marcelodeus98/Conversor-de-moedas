@@ -1,9 +1,7 @@
-import express, { response } from "express";
+import express from "express";
 import bodyParser from 'body-parser';
 
-
 import { fetchData } from "./fecthData.mjs";
-import { convertCoin } from "./conveterData.mjs";
 
 const app = express();
 
