@@ -1,0 +1,91 @@
+<%- include ('./partials/header.ejs') %>
+    <body>
+    <div class="flexbox-container">
+        
+        <header>
+            <div class="menu-container">
+                <nav class="menu">
+                    <div class="div-menu">
+                        <div class="div-menu-left">
+                            <img src="/image/2EE2F272-D0E1-4CD7-9BBE-7237745FB19A.PNG" width="100px" height="80px">
+                        </div>
+                        <div class="div-menu-rigth">
+                            <a href="#home" id="link-menu">Home</a>
+                            <a href="#about-div" id="link-menu">About</a>
+                            <a href="#contact-div" id="link-menu">Contact</a>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="parallax-container" id="home">
+    
+        </div>   
+        
+        <div class="container-conveter">
+            <h1>Conversor de moedas</h1>
+    
+            <input id="valueId" type="text" placeholder="1,00">
+            <select id="selectMoedaOne">
+                <% arrData.forEach(item => { %>
+                    <option><%= item %></option>
+                <% }); %>
+            </select>
+            
+            <select id="selectMoedaTwo">
+                <% arrData.forEach(item => { %>
+                    <option><%= item %></option>
+                <% }); %>
+            </select>
+    
+            <h3>Faça sua conversão, com base em dados diários fornecido pela AwesomeAPI.</h3>
+            <button type="submit" onclick="Converter()">Converter</button>
+            
+            <h3 id="valueConvert"></h3>        
+            
+    
+        </div>
+    
+        <div id="about-div">
+            <h2>Como usar o conversor de modedas ?</h2>
+            <p>É simples e prático, coloque o valor que deseja converter, selecione as moedas do país de origem e de destino e pronto, em poucos segundos, você terá a conversão feita.</p>
+            <h2>Como funciona a conversão e para quê serve?</h2>
+                <img class="img-about" src="/image/cambio.jpg">
+                <p>
+                    A conversão de moeda, também conhecida como taxa de câmbio, funciona da seguinte maneira: toda moeda possui um custo comparado a outra moeda.
+                    O dólar, por exemplo, possui oscilações, mas o custo de um dólar gira em torno de R$ 5. A conversão é essencial para entender o quanto de dinheiro levar e, principalmente, se o valor que você possui será suficiente para a sua viagem. 
+                    Por isso, sempre considera o valor da moeda estrangeira sob a moeda nacional. Neste caso, existem moedas que são mais valorizadas que o Real como a Libra Esterlina, o Dólar e o Euro. 
+                    No entanto, também existem moedas que custam menos que o Real. O Peso Argentino, Mexicano e chileno são exemplos de moedas que valem menos que a moeda nacional. A utilidade na conversão se dá justamente na troca de produtos e serviços oferecidos no exterior.
+                    Afinal, usar o cartão de crédito no exterior não vale a pena, já que possui um custo alto. Então, a melhor forma de viajar ao exterior é utilizando a moeda corrente.
+                </p>
+        </div>
+       
+        <div class="section-contact" id="contact-div">
+            <h1 class="title">Contact</h1>
+            <div class="section-contact-itens">
+                <div>
+                    <img class="logo" src="/image/whastapp-logo.png" alt="whastapp-logo">
+                    <p>(85)99999-9999</p></a>
+                </div>
+                <div>
+                    <img class="logo" src="/image/email-logo.png" alt="email-logo">
+                    <p>azulsolutions@gmail.com</p></a>
+                </div>
+            </div>
+    
+        </div>
+    </main>    
+    
+    
+    <footer>
+        <div class="footer-container">
+            <h3>Developed by João Marcelo Deus</h3>
+        </div>
+    
+    </footer>
+        
+    
+     </div>  
+    </body>
+
+<%- include ('./partials/foorter.ejs') %>

@@ -1,0 +1,9 @@
+GET https://openexchangerates.org/api/currencies.json
+Content-Type: application/json
+
+###
+GET https://economia.awesomeapi.com.br/last/BRL-USD
+Content-Type: application/json
+
+###
+GET https://economia.awesomeapi.com.br/USD-BRL/
