@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --experimental-modules server.mjs"
+    "dev": "nodemon --experimental-modules server.mjs",
+    "start": "node --experimental-modules server.mjs",
+    "build": "node --experimental-modules server.mjs"
   },
   "author": "JMD",
   "license": "ISC",
