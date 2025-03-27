@@ -34,7 +34,7 @@
                 <div class="select-group">
                     <select id="selectMoedaOne" class="currency-select">
                         <% arrData.forEach(item => { %>
-                            <option value="<%= item[0] %>"><%= item[0] %> - <%= item[1] %></option>
+                          <option value="<%= item[0] %>" <%= item[0] === 'BRL' ? 'selected' : '' %>><%= item[0] %> - <%= item[1] %></option>
                         <% }); %>
                     </select>
                     
@@ -44,7 +44,7 @@
                     
                     <select id="selectMoedaTwo" class="currency-select">
                         <% arrData.forEach(item => { %>
-                            <option value="<%= item[0] %>" <%= item[0] === 'BRL' ? 'selected' : '' %>><%= item[0] %> - <%= item[1] %></option>
+                            <option value="<%= item[0] %>" <%= item[0] === 'USD' ? 'selected' : '' %>><%= item[0] %> - <%= item[1] %></option>
                         <% }); %>
                     </select>
                 </div>
