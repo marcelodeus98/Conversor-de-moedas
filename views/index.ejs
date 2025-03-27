@@ -1,5 +1,6 @@
 <%- include ('./partials/header.ejs') %>
-    <body>
+    
+<body>
     <div class="flexbox-container">
         
         <header>
@@ -7,85 +8,137 @@
                 <nav class="menu">
                     <div class="div-menu">
                         <div class="div-menu-left">
-                            <img src="/image/2EE2F272-D0E1-4CD7-9BBE-7237745FB19A.PNG" width="100px" height="80px">
+                            <img src="/image/2EE2F272-D0E1-4CD7-9BBE-7237745FB19A.PNG" width="100px" height="80px" class="logo-img">
                         </div>
-                        <div class="div-menu-rigth">
-                            <a href="#home" id="link-menu">Home</a>
-                            <a href="#about-div" id="link-menu">About</a>
-                            <a href="#contact-div" id="link-menu">Contact</a>
+                        <div class="div-menu-rigth" id="menuLinks">
+                            <a href="#home" class="link-menu">Home</a>
+                            <a href="#about-div" class="link-menu">About</a>
+                            <a href="#contact-div" class="link-menu">Contact</a>
                         </div>
-                    </ul>
+                        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+                    </div>
                 </nav>
             </div>
         </header>
-        <div class="parallax-container" id="home">
-    
-        </div>   
+
+        <div class="parallax-container" id="home"></div>   
         
         <div class="container-conveter">
             <h1>Conversor de moedas</h1>
-    
-            <input id="valueId" type="text" placeholder="1,00">
-            <select id="selectMoedaOne">
-                <% arrData.forEach(item => { %>
-                    <option><%= item %></option>
-                <% }); %>
-            </select>
             
-            <select id="selectMoedaTwo">
-                <% arrData.forEach(item => { %>
-                    <option><%= item %></option>
-                <% }); %>
-            </select>
-    
-            <h3>Faça sua conversão, com base em dados diários fornecido pela AwesomeAPI.</h3>
-            <button type="submit" onclick="Converter()">Converter</button>
+            <div class="converter-wrapper">
+                <div class="input-group">
+                    <input id="valueId" type="number" placeholder="1,00" step="0.01" min="0">
+                </div>
+                
+                <div class="select-group">
+                    <select id="selectMoedaOne" class="currency-select">
+                        <% arrData.forEach(item => { %>
+                            <option value="<%= item[0] %>"><%= item[0] %> - <%= item[1] %></option>
+                        <% }); %>
+                    </select>
+                    
+                    <button id="swapCurrencies" class="swap-btn" title="Inverter moedas">
+                        ↔
+                    </button>
+                    
+                    <select id="selectMoedaTwo" class="currency-select">
+                        <% arrData.forEach(item => { %>
+                            <option value="<%= item[0] %>" <%= item[0] === 'BRL' ? 'selected' : '' %>><%= item[0] %> - <%= item[1] %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                
+                <button type="submit" class="convert-btn" onclick="Converter()">Converter</button>
+                
+                <div class="result-container">
+                    <h3 id="valueConvert"></h3>
+                    <p id="conversionRate"></p>
+                </div>
+            </div>
             
-            <h3 id="valueConvert"></h3>        
-            
-    
+            <h3 class="api-info">Faça sua conversão, com base em dados diários fornecido pela AwesomeAPI.</h3>        
         </div>
-    
+
         <div id="about-div">
-            <h2>Como usar o conversor de modedas ?</h2>
+            <h2>Como usar o conversor de moedas?</h2>
             <p>É simples e prático, coloque o valor que deseja converter, selecione as moedas do país de origem e de destino e pronto, em poucos segundos, você terá a conversão feita.</p>
+            
             <h2>Como funciona a conversão e para quê serve?</h2>
-                <img class="img-about" src="/image/cambio.jpg">
-                <p>
-                    A conversão de moeda, também conhecida como taxa de câmbio, funciona da seguinte maneira: toda moeda possui um custo comparado a outra moeda.
-                    O dólar, por exemplo, possui oscilações, mas o custo de um dólar gira em torno de R$ 5. A conversão é essencial para entender o quanto de dinheiro levar e, principalmente, se o valor que você possui será suficiente para a sua viagem. 
-                    Por isso, sempre considera o valor da moeda estrangeira sob a moeda nacional. Neste caso, existem moedas que são mais valorizadas que o Real como a Libra Esterlina, o Dólar e o Euro. 
-                    No entanto, também existem moedas que custam menos que o Real. O Peso Argentino, Mexicano e chileno são exemplos de moedas que valem menos que a moeda nacional. A utilidade na conversão se dá justamente na troca de produtos e serviços oferecidos no exterior.
-                    Afinal, usar o cartão de crédito no exterior não vale a pena, já que possui um custo alto. Então, a melhor forma de viajar ao exterior é utilizando a moeda corrente.
-                </p>
+            <img class="img-about" src="/image/cambio.jpg" alt="Ilustração de câmbio monetário">
+            <p>
+                A conversão de moeda, também conhecida como taxa de câmbio, funciona da seguinte maneira: toda moeda possui um custo comparado a outra moeda.
+                O dólar, por exemplo, possui oscilações, mas o custo de um dólar gira em torno de R$ 5. A conversão é essencial para entender o quanto de dinheiro levar e, principalmente, se o valor que você possui será suficiente para a sua viagem. 
+            </p>
+            
+            <div class="usage-tips">
+                <h3>Dicas de uso:</h3>
+                <ul>
+                    <li>Para valores decimais, use ponto (.) como separador</li>
+                    <li>Clique no botão "↔" para inverter as moedas</li>
+                    <li>O resultado é atualizado automaticamente</li>
+                </ul>
+            </div>
         </div>
        
         <div class="section-contact" id="contact-div">
             <h1 class="title">Contact</h1>
             <div class="section-contact-itens">
-                <div>
-                    <img class="logo" src="/image/whastapp-logo.png" alt="whastapp-logo">
-                    <p>(85)99999-9999</p></a>
+                <div class="contact-item">
+                    <img class="logo" src="/image/whastapp-logo.png" alt="WhatsApp logo">
+                    <p>(85)99999-9999</p>
                 </div>
-                <div>
-                    <img class="logo" src="/image/email-logo.png" alt="email-logo">
-                    <p>azulsolutions@gmail.com</p></a>
+                <div class="contact-item">
+                    <img class="logo" src="/image/email-logo.png" alt="Email logo">
+                    <p>azulsolutions@gmail.com</p>
                 </div>
             </div>
-    
-        </div>
-    </main>    
-    
-    
-    <footer>
-        <div class="footer-container">
-            <h3>Developed by João Marcelo Deus</h3>
         </div>
     
-    </footer>
-        
-    
-     </div>  
-    </body>
+        <footer>
+            <div class="footer-container">
+                <h3>Developed by João Marcelo Deus</h3>
+                <p>Dados fornecidos por AwesomeAPI</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle menu mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const menuLinks = document.getElementById('menuLinks');
+            menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Função para inverter moedas
+        document.getElementById('swapCurrencies').addEventListener('click', function() {
+            const moedaOne = document.getElementById('selectMoedaOne');
+            const moedaTwo = document.getElementById('selectMoedaTwo');
+            const tempValue = moedaOne.value;
+            moedaOne.value = moedaTwo.value;
+            moedaTwo.value = tempValue;
+            
+            if(document.getElementById('valueId').value) {
+                Converter();
+            }
+        });
+
+        // Ajustar altura do parallax em mobile
+        function adjustParallaxHeight() {
+            const parallax = document.querySelector('.parallax-container');
+            if (window.innerWidth < 768) {
+                parallax.style.minHeight = '300px';
+                parallax.style.backgroundAttachment = 'scroll';
+            } else {
+                parallax.style.minHeight = '500px';
+                parallax.style.backgroundAttachment = 'fixed';
+            }
+        }
+
+        // Executar ao carregar e redimensionar
+        window.addEventListener('load', adjustParallaxHeight);
+        window.addEventListener('resize', adjustParallaxHeight);
+    </script>
+</body>
 
 <%- include ('./partials/foorter.ejs') %>
