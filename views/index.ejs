@@ -60,6 +60,34 @@
             <h3 class="api-info">Faça sua conversão, com base em dados diários fornecido pela AwesomeAPI.</h3>        
         </div>
 
+        <div class="comparison-section">
+            <h3>Comparação Histórica de Moedas</h3>
+            
+            <div class="comparison-controls">
+                <div class="comparison-presets">
+                    <button class="comparison-btn" onclick="loadTopCurrencies()">
+                        Comparar Top 5 Moedas vs BRL
+                    </button>
+                </div>
+                
+                <div class="custom-comparison">
+                    <h4>Ou selecione moedas para comparar:</h4>
+                    <select id="comparisonCurrencySelect" class="currency-select js-example-basic-multiple" multiple="multiple">
+                        <% arrData.forEach(item => { %>
+                            <% if (item[0] !== 'BRL') { %>
+                                <option value="<%= item[0] %>"><%= item[0] %> - <%= item[1] %></option>
+                            <% } %>
+                        <% }); %>
+                    </select>
+                    <button class="comparison-submit-btn" onclick="loadCustomComparison()">
+                        Comparar Moedas Selecionadas
+                    </button>
+                </div>
+            </div>
+            
+            <div id="comparisonResults" class="comparison-results"></div>
+        </div>
+
         <div id="about-div">
             <h2>Como usar o conversor de moedas?</h2>
             <p>É simples e prático, coloque o valor que deseja converter, selecione as moedas do país de origem e de destino e pronto, em poucos segundos, você terá a conversão feita.</p>
@@ -105,55 +133,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    
-    <script>
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            const menuLinks = document.getElementById('menuLinks');
-            menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2({
-                theme: 'bootstrap-5',
-                width: '100%',
-                placeholder: "Selecione ou digite para buscar",
-                language: {
-                    noResults: function() {
-                        return "Nenhum resultado encontrado";
-                    },
-                    searching: function() {
-                        return "Buscando...";
-                    }
-                }
-            });
-            
-            document.getElementById('swapCurrencies').addEventListener('click', function() {
-                const moedaOneValue = $('#selectMoedaOne').val();
-                const moedaTwoValue = $('#selectMoedaTwo').val();
-                
-                $('#selectMoedaOne').val(moedaTwoValue).trigger('change');
-                $('#selectMoedaTwo').val(moedaOneValue).trigger('change');
-                
-                if(document.getElementById('valueId').value) {
-                    Converter();
-                }
-            });
-        });
-
-        function adjustParallaxHeight() {
-            const parallax = document.querySelector('.parallax-container');
-            if (window.innerWidth < 768) {
-                parallax.style.minHeight = '300px';
-                parallax.style.backgroundAttachment = 'scroll';
-            } else {
-                parallax.style.minHeight = '500px';
-                parallax.style.backgroundAttachment = 'fixed';
-            }
-        }
-
-        window.addEventListener('load', adjustParallaxHeight);
-        window.addEventListener('resize', adjustParallaxHeight);
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 
 <%- include ('./partials/foorter.ejs') %>
