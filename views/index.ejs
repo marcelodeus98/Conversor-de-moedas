@@ -32,7 +32,7 @@
                 </div>
                 
                 <div class="select-group">
-                    <select id="selectMoedaOne" class="currency-select">
+                    <select id="selectMoedaOne" class="currency-select js-example-basic-single">
                         <% arrData.forEach(item => { %>
                           <option value="<%= item[0] %>" <%= item[0] === 'BRL' ? 'selected' : '' %>><%= item[0] %> - <%= item[1] %></option>
                         <% }); %>
@@ -42,7 +42,7 @@
                         ↔
                     </button>
                     
-                    <select id="selectMoedaTwo" class="currency-select">
+                    <select id="selectMoedaTwo" class="currency-select js-example-basic-single">
                         <% arrData.forEach(item => { %>
                             <option value="<%= item[0] %>" <%= item[0] === 'USD' ? 'selected' : '' %>><%= item[0] %> - <%= item[1] %></option>
                         <% }); %>
@@ -103,27 +103,43 @@
         </footer>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
     <script>
-        // Toggle menu mobile
         document.querySelector('.menu-toggle').addEventListener('click', function() {
             const menuLinks = document.getElementById('menuLinks');
             menuLinks.style.display = menuLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
-        // Função para inverter moedas
-        document.getElementById('swapCurrencies').addEventListener('click', function() {
-            const moedaOne = document.getElementById('selectMoedaOne');
-            const moedaTwo = document.getElementById('selectMoedaTwo');
-            const tempValue = moedaOne.value;
-            moedaOne.value = moedaTwo.value;
-            moedaTwo.value = tempValue;
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2({
+                theme: 'bootstrap-5',
+                width: '100%',
+                placeholder: "Selecione ou digite para buscar",
+                language: {
+                    noResults: function() {
+                        return "Nenhum resultado encontrado";
+                    },
+                    searching: function() {
+                        return "Buscando...";
+                    }
+                }
+            });
             
-            if(document.getElementById('valueId').value) {
-                Converter();
-            }
+            document.getElementById('swapCurrencies').addEventListener('click', function() {
+                const moedaOneValue = $('#selectMoedaOne').val();
+                const moedaTwoValue = $('#selectMoedaTwo').val();
+                
+                $('#selectMoedaOne').val(moedaTwoValue).trigger('change');
+                $('#selectMoedaTwo').val(moedaOneValue).trigger('change');
+                
+                if(document.getElementById('valueId').value) {
+                    Converter();
+                }
+            });
         });
 
-        // Ajustar altura do parallax em mobile
         function adjustParallaxHeight() {
             const parallax = document.querySelector('.parallax-container');
             if (window.innerWidth < 768) {
@@ -135,7 +151,6 @@
             }
         }
 
-        // Executar ao carregar e redimensionar
         window.addEventListener('load', adjustParallaxHeight);
         window.addEventListener('resize', adjustParallaxHeight);
     </script>
